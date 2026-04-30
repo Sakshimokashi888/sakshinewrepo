@@ -1,0 +1,9 @@
+# Railway config for backend service
+[build]
+builder = "NIXPACKS"
+
+[deploy]
+startCommand = "npx prisma generate && npx prisma db push && node src/index.js"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
